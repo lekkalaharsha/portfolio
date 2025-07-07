@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsha Vardhan Naidu Lekkkala - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- AOS Animate On Scroll CSS/JS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F5F4;
+            color: #292524;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #A855F7;
+            border: 4px solid #E7E5E4;
+        }
+        .timeline-path {
+            position: absolute;
+            left: -21px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #D6D3D1;
+        }
+        .project-card-content {
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .project-card.open .project-card-content {
+            max-height: 500px;
+            opacity: 1;
+        }
+        .nav-link.active {
+            color: #A855F7;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-stone-100/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 transition-shadow duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-stone-900">Harsha V. N. Lekkkala</h1>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link text-stone-600 hover:text-purple-500 transition-colors">About</a>
+                <a href="#skills" class="nav-link text-stone-600 hover:text-purple-500 transition-colors">Skills</a>
+                <a href="#experience" class="nav-link text-stone-600 hover:text-purple-500 transition-colors">Experience</a>
+                <a href="#projects" class="nav-link text-stone-600 hover:text-purple-500 transition-colors">Projects</a>
+                <a href="#contact" class="nav-link text-stone-600 hover:text-purple-500 transition-colors">Contact</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-stone-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col space-y-2">
+            <a href="#about" class="nav-link block text-stone-600 hover:text-purple-500 transition-colors">About</a>
+            <a href="#skills" class="nav-link block text-stone-600 hover:text-purple-500 transition-colors">Skills</a>
+            <a href="#experience" class="nav-link block text-stone-600 hover:text-purple-500 transition-colors">Experience</a>
+            <a href="#projects" class="nav-link block text-stone-600 hover:text-purple-500 transition-colors">Projects</a>
+            <a href="#contact" class="nav-link block text-stone-600 hover:text-purple-500 transition-colors">Contact</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- Hero Section -->
+        <section id="hero" class="py-20 md:py-32" data-aos="fade-down">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-6xl font-bold text-stone-900 leading-tight">Harsha Vardhan Naidu Lekkkala</h2>
+                <p class="mt-4 text-lg md:text-xl text-stone-600">Embedded Systems & IoT Developer | Full-Stack Enthusiast | Data Scientist in Training</p>
+                <div class="mt-8 flex justify-center space-x-6">
+                    <a href="https://www.linkedin.com/in/lekkala-harsha-vardhan-naidu-6aa39322a" target="_blank" class="text-purple-500 hover:text-purple-700 transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
+                    </a>
+                    <a href="https://github.com/lekkalaharsha" target="_blank" class="text-purple-500 hover:text-purple-700 transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="mailto:harshalekkala@gmail.com" class="text-purple-500 hover:text-purple-700 transition-colors">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+                    </a>
+                </div>
+                <!-- Download Resume Button -->
+                <div class="text-center">
+                    <a href="Harsha_Resume_2024 (1).pdf" download class="mt-8 inline-block bg-purple-500 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition-colors shadow-md">
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-stone-200" data-aos="fade-up">
+            <div class="container mx-auto px-6">
+                <h3 class="text-3xl font-bold text-center text-stone-900">About Me</h3>
+                <p class="mt-8 max-w-3xl mx-auto text-center text-lg text-stone-700">
+                    I am a highly motivated and results-driven Electrical and Electronics Engineer with a strong background in Embedded Systems, IoT, full-stack development, and Data Analytics. I have a proven ability to develop scalable solutions, manage end-to-end projects, and integrate cutting-edge technologies like AI/ML. Currently pursuing an MSc in Data Science, I am seeking challenging roles that leverage my technical expertise and drive innovation.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20" data-aos="fade-up">
+            <div class="container mx-auto px-6">
+                <h3 class="text-3xl font-bold text-center text-stone-900">Technical Skills</h3>
+                <p class="mt-4 text-center text-lg text-stone-600">A visual representation of my key technical abilities. I have hands-on experience across programming languages, hardware platforms, and modern development tools.</p>
+                <div class="mt-12 chart-container">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 bg-stone-200" data-aos="fade-up">
+            <div class="container mx-auto px-6">
+                <h3 class="text-3xl font-bold text-center text-stone-900">Career Journey</h3>
+                <p class="mt-4 text-center text-lg text-stone-600">My professional path, highlighting key roles and responsibilities. Click on any title to see more details.</p>
+                <div class="mt-12 max-w-3xl mx-auto">
+                    <div class="relative pl-8">
+                        <div class="timeline-path"></div>
+                        <div id="timeline-container"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20" data-aos="fade-up">
+            <div class="container mx-auto px-6">
+                <h3 class="text-3xl font-bold text-center text-stone-900">Project Showcase</h3>
+                <p class="mt-4 text-center text-lg text-stone-600">A selection of projects where I've applied my skills to solve real-world problems. Click on a project to learn more.</p>
+                <div id="projects-grid" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Project cards will be injected here -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Achievements & Education -->
+        <section id="achievements" class="py-20 bg-stone-200" data-aos="fade-up">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-16">
+                    <div>
+                        <h3 class="text-3xl font-bold text-stone-900">Achievements</h3>
+                        <ul id="achievements-list" class="mt-6 space-y-4 text-stone-700 list-disc list-inside">
+                            <!-- Achievements injected here -->
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-stone-900">Education</h3>
+                        <div id="education-list" class="mt-6 space-y-6">
+                            <!-- Education injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-stone-800 text-stone-300 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-2xl font-bold text-white">Get In Touch</h3>
+            <p class="mt-4 max-w-xl mx-auto">I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious vision. Feel free to reach out.</p>
+            <a href="mailto:harshalekkala@gmail.com" class="mt-8 inline-block bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                harshalekkala@gmail.com
+            </a>
+            <div class="mt-8 border-t border-stone-700 pt-8">
+                <p>&copy; <span id="year"></span> Harsha Vardhan Naidu Lekkkala. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // --- Data ---
+        const skillsData = {
+            labels: ['C/C++', 'Python', 'Embedded C', 'Flutter', 'Firebase', 'IoT (ESP32/NodeMCU)', 'Data Analytics', 'Full-Stack (LAMP/MERN)'],
+            datasets: [{
+                label: 'Competency',
+                data: [90, 85, 95, 80, 88, 92, 75, 70],
+                backgroundColor: '#A855F7',
+                borderColor: '#8B5CF6',
+                borderWidth: 1
+            }]
+        };
+        
+        const experienceData = [
+            {
+                role: 'Embedded Engineer II',
+                company: 'Boson Motors Pvt Ltd',
+                period: 'May 2024 – Present',
+                details: [
+                    'Oversaw vehicle telemetry data and analytics for production and test fleets via Mobile Device Management (MDM).',
+                    'Automated data loss validation and report generation with Python, boosting accuracy by 10%.',
+                    'Enhanced operational efficiency by validating vehicle data and resolving critical bugs in Android applications.',
+                    'Engineered independent testing software utilizing comprehensive vehicle data.'
+                ]
+            },
+            {
+                role: 'Freelancer: Web & Android Developer',
+                company: 'Self-Employed',
+                period: 'May 2024 – February 2025',
+                details: [
+                    'Led end-to-end website development projects using WordPress and Hostinger.',
+                    'Built real-time Android applications leveraging Flutter, Firebase, and the Gemini API.'
+                ]
+            },
+            {
+                role: 'IoT & Full Stack Developer Intern',
+                company: 'MSRTech Research Labz',
+                period: 'December 2023 – April 2024',
+                details: [
+                    'Developed scalable IoT solutions and managed full-stack development (WordPress, MongoDB).',
+                    'Mentored junior developers and managed data pipelines to ensure efficient data flow.',
+                    'Delivered software solutions on strict deadlines, leading project management with Jira.'
+                ]
+            }
+        ];
+        
+        const projectsData = [
+            {
+                title: 'Vaidya – AI-Driven Healthcare Assistant',
+                description: 'Developed an AI-powered virtual assistant enhancing healthcare accessibility by providing initial diagnoses and decision support based on user symptoms. Utilized Ollama, Lava, and Llama models for AI-driven diagnosis and Natural Language Processing (NLP) for accurate symptom input and query processing. Designed for continuous improvement through user feedback integration, optimizing patient outcomes and resource distribution in strained healthcare environments.',
+                tags: ['AI/ML', 'LLM', 'Python', 'NLP']
+            },
+            {
+                title: 'Sign Language Translator (LSTM)',
+                description: 'Developed an innovative sign language translator leveraging LSTM deep learning technology to bridge communication barriers by translating sign language into speech. Utilized LSTM to enhance the accuracy and efficiency of interpretation, understanding nuanced gestures for real-time, accurate translations. Aims to foster inclusivity and empower individuals with hearing impairments to communicate seamlessly.',
+                tags: ['AI/ML', 'Deep Learning', 'Python', 'LSTM']
+            },
+            {
+                title: 'Wearable AI Sensor for Elderly',
+                description: 'Developed an AI-powered wearable sensor system for fall prevention, integrating hardware, AI/ML, and generative AI via the Gemini API for intelligent predictions. Built a real-time mobile application (Flutter & Firebase) for data visualization, exercise routines, and real-time alerts. Engineered API endpoints and implemented a robust Over-the-Air (OTA) firmware update system using Firebase and GitHub for seamless device maintenance.',
+                tags: ['IoT', 'AI/ML', 'Flutter', 'Firebase', 'OTA']
+            },
+            {
+                title: 'Solar Cleaning Bot (Patent Filed)',
+                description: 'Engineered an autonomous bot that increased solar panel output by 40%. Integrated IoT, ESP32, and Firebase for robust functionality, including a mobile application for remote monitoring and an Over-the-Air (OTA) firmware update system.',
+                tags: ['IoT', 'Embedded C', 'Firebase', 'Automation', 'OTA']
+            },
+            {
+                title: 'Solar Tree',
+                description: 'Designed and deployed an IoT-based solar energy integration system for urban spaces. Achieved seamless hardware and software integration to automate power on/off based on real-time data, mobile operation, and State of Charge (SOC).',
+                tags: ['IoT', 'NodeMCU', 'Firebase', 'Renewable Energy']
+            }
+        ];
+
+        const achievementsData = [
+            'Winner, NIT AP Startup Expo 2023',
+            'Finalist, Smart India Hackathon 2022: Participated in the Grand Finale, collaborating with a team to develop innovative solutions.',
+            'Project Expo Winner (2022, 2023, 2024), SRKR Engineering College',
+            'AICTE IDE Boot Camp 2023: Gained hands-on entrepreneurial knowledge and pitched an idea to an angel investor.'
+        ];
+
+        const educationData = [
+            {
+                degree: 'MSc (Data Science)',
+                institution: 'Kalasalingam Academy of Research and Education, CDOE',
+                period: '2024 – Present'
+            },
+            {
+                degree: 'B.Tech, Electrical and Electronics Engineering',
+                institution: 'S.R.K.R. Engineering College, Bhimavaram, AP',
+                period: '2021–2024'
+            },
+            {
+                degree: 'Diploma, Electrical and Electronics Engineering',
+                institution: 'M.R.A.G.R. Govt. Polytechnic, Vizianagaram, AP',
+                period: '2018–2021'
+            }
+        ];
+
+
+        // --- Render Functions ---
+        
+        // Skills Chart
+        const ctx = document.getElementById('skillsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: skillsData,
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: { color: '#E7E5E4' },
+                        ticks: { color: '#57534E', font: { weight: 'bold' } }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: { color: '#57534E', font: { size: 14 } }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#1C1917',
+                        titleFont: { size: 14, weight: 'bold' },
+                        bodyFont: { size: 12 },
+                        padding: 10,
+                        cornerRadius: 4,
+                        displayColors: false
+                    }
+                }
+            }
+        });
+
+        // Experience Timeline
+        const timelineContainer = document.getElementById('timeline-container');
+        experienceData.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'mb-12 relative timeline-item';
+            div.innerHTML = `
+                <div class="cursor-pointer">
+                    <h4 class="text-xl font-bold text-stone-800">${item.role}</h4>
+                    <p class="text-purple-600 font-medium">${item.company} | ${item.period}</p>
+                </div>
+                <ul class="mt-2 pl-4 space-y-2 text-stone-600 hidden">
+                    ${item.details.map(d => `<li>- ${d}</li>`).join('')}
+                </ul>
+            `;
+            timelineContainer.appendChild(div);
+        });
+        
+        // Projects Grid
+        const projectsGrid = document.getElementById('projects-grid');
+        projectsData.forEach(project => {
+            const card = document.createElement('div');
+            card.className = 'project-card bg-stone-200 rounded-lg p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-pointer';
+            card.innerHTML = `
+                <div class="flex justify-between items-start">
+                    <h4 class="text-xl font-bold text-stone-800">${project.title}</h4>
+                    <span class="text-purple-500 transform transition-transform duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </span>
+                </div>
+                <div class="mt-2 flex flex-wrap gap-2">
+                    ${project.tags.map(tag => `<span class="bg-purple-200 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">${tag}</span>`).join('')}
+                </div>
+                <div class="project-card-content mt-4">
+                    <p class="text-stone-600">${project.description}</p>
+                </div>
+            `;
+            projectsGrid.appendChild(card);
+        });
+        
+        // Achievements List
+        const achievementsList = document.getElementById('achievements-list');
+        achievementsData.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            achievementsList.appendChild(li);
+        });
+
+        // Education List
+        const educationList = document.getElementById('education-list');
+        educationData.forEach(item => {
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <h4 class="text-lg font-bold text-stone-800">${item.degree}</h4>
+                <p class="text-stone-600">${item.institution}</p>
+                <p class="text-sm text-stone-500">${item.period}</p>
+            `;
+            educationList.appendChild(div);
+        });
+
+        // Current Year for Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- Event Listeners ---
+        
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Experience Timeline Toggle
+        timelineContainer.addEventListener('click', function(e) {
+            const header = e.target.closest('div[class^="cursor-pointer"]');
+            if (header) {
+                const content = header.nextElementSibling;
+                content.classList.toggle('hidden');
+            }
+        });
+
+        // Project Card Toggle
+        projectsGrid.addEventListener('click', function(e) {
+            const card = e.target.closest('.project-card');
+            if (card) {
+                card.classList.toggle('open');
+                const icon = card.querySelector('span svg');
+                icon.parentElement.classList.toggle('rotate-180');
+            }
+        });
+        
+        // Smooth scrolling for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if(targetElement){
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    if (document.getElementById('mobile-menu').classList.contains('hidden') === false) {
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Header shadow on scroll
+            const header = document.getElementById('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // === Initialize AOS ===
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+    });
+</script>
+</body>
+</html>
