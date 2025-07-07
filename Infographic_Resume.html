@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic Resume: Harsha Vardhan Naidu Lekkkala</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #118AB2;
+            border: 4px solid #f8fafc;
+        }
+        .timeline-path {
+            position: absolute;
+            left: -1px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e2e8f0;
+        }
+        @media print {
+            .download-btn, .no-print {
+                display: none !important;
+            }
+            body {
+                background: #fff !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-6xl">
+
+        <!-- Download Resume Button -->
+        <div class="no-print sticky top-0 z-40 flex justify-end bg-slate-50 py-3 mb-1 md:mb-0">
+            <a href="Harsha_Resume_2024.pdf" download class="download-btn inline-flex items-center gap-2 bg-[#118AB2] hover:bg-[#073B4C] text-white font-bold px-5 py-2 rounded-full shadow transition-colors text-base md:text-lg focus:outline-none focus:ring-2 focus:ring-[#FFD166]">
+                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
+                Download Resume
+            </a>
+        </div>
+        
+        <!-- Header -->
+        <header class="text-center mb-6 md:mb-14">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#073B4C] leading-tight">Harsha Vardhan Naidu Lekkkala</h1>
+            <p class="text-xl md:text-2xl text-[#118AB2] mt-2">Innovator in Embedded Systems, IoT, and AI</p>
+            <!-- Short Professional Summary -->
+            <p class="max-w-xl mx-auto text-base md:text-lg text-slate-600 mt-3 mb-3 md:mb-0">
+                Passionate builder of intelligent hardware and software solutions. Specializing in end-to-end product development and real-world impact through data-driven engineering, automation, and AI/ML.
+            </p>
+        </header>
+
+        <!-- Key Stats & Intro -->
+        <section class="mb-14">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h2 class="text-2xl font-bold text-[#073B4C] mb-4">Driving Efficiency Through Innovation</h2>
+                    <p class="text-slate-600 mb-4">My work focuses on creating tangible results. A prime example is the patented Solar Cleaning Bot, an autonomous solution I engineered to tackle energy loss on solar panels.</p>
+                    <p class="text-slate-600 font-semibold">This project demonstrates a core principle of my work: applying advanced technology to solve practical problems and deliver measurable improvements.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg text-center">
+                    <h3 class="text-xl font-bold text-[#073B4C] mb-2">Solar Panel Output Boost</h3>
+                    <div class="chart-container" style="height:250px; max-height:250px;">
+                        <canvas id="kpiChart"></canvas>
+                    </div>
+                    <div class="text-[#06D6A0] font-bold mt-3 text-lg">+40% Efficiency Gain</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Competencies -->
+        <section class="mb-14 text-center">
+            <h2 class="text-3xl font-bold text-[#073B4C] mb-8">Core Competencies</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <span class="text-5xl" role="img" aria-label="Embedded Systems">⚙️</span>
+                    <h3 class="text-xl font-bold mt-4 mb-2 text-[#118AB2]">Embedded Systems & IoT</h3>
+                    <p class="text-slate-600">Designing and deploying scalable IoT solutions with expertise in NodeMCU, ESP32, and OTA updates.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <span class="text-5xl" role="img" aria-label="Artificial Intelligence">💡</span>
+                    <h3 class="text-xl font-bold mt-4 mb-2 text-[#06D6A0]">AI & Machine Learning</h3>
+                    <p class="text-slate-600">Leveraging AI/ML with TensorFlow, LSTMs, and Generative AI to build intelligent, predictive systems.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <span class="text-5xl" role="img" aria-label="Full-Stack Development">💻</span>
+                    <h3 class="text-xl font-bold mt-4 mb-2 text-[#FFD166]">Full-Stack Development</h3>
+                    <p class="text-slate-600">Building complete applications with skills in Flutter, Firebase, Python, and web technologies.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Breakdown Chart -->
+        <section class="mb-14">
+            <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-8">Technical Skill Distribution</h2>
+            <div class="bg-white p-6 rounded-2xl shadow-lg">
+                 <div class="chart-container" style="height:350px; max-height:400px;">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+                <p class="text-center text-slate-500 mt-4">A visual representation of my focus across key technology domains, derived from project work and experience.</p>
+            </div>
+        </section>
+
+        <!-- Project Showcase -->
+        <section class="mb-14">
+            <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-8">Project Showcase</h2>
+            <div class="space-y-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <a href="https://github.com/lekkalaharsha/vaidya" target="_blank" rel="noopener" class="group">
+                        <h3 class="text-2xl font-bold text-[#118AB2] group-hover:underline flex items-center gap-2">
+                            Vaidya – AI-Driven Healthcare Assistant
+                            <svg aria-label="External Link" class="w-5 h-5 inline text-[#118AB2]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 7h-8m8 0V17m0-10l-8 8"></path></svg>
+                        </h3>
+                    </a>
+                    <p class="mt-2 text-slate-600">Developed an AI-powered virtual assistant to make healthcare more accessible. It uses Ollama and Llama models to provide initial diagnoses from user symptoms, leveraging NLP for accurate communication.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <a href="https://github.com/lekkalaharsha/wearable-ai-sensor" target="_blank" rel="noopener" class="group">
+                        <h3 class="text-2xl font-bold text-[#06D6A0] group-hover:underline flex items-center gap-2">
+                            Wearable AI Sensor for Elderly
+                            <svg aria-label="External Link" class="w-5 h-5 inline text-[#06D6A0]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 7h-8m8 0V17m0-10l-8 8"></path></svg>
+                        </h3>
+                    </a>
+                    <p class="mt-2 text-slate-600">Engineered a fall prevention system using AI (Gemini API) and wearable sensors. The solution includes a Flutter app for real-time alerts and features a robust Over-the-Air (OTA) firmware update system.</p>
+                </div>
+                 <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <a href="https://github.com/lekkalaharsha/sign-language-lstm" target="_blank" rel="noopener" class="group">
+                        <h3 class="text-2xl font-bold text-[#FF6B6B] group-hover:underline flex items-center gap-2">
+                            Sign Language Translator (LSTM)
+                            <svg aria-label="External Link" class="w-5 h-5 inline text-[#FF6B6B]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 7h-8m8 0V17m0-10l-8 8"></path></svg>
+                        </h3>
+                    </a>
+                    <p class="mt-2 text-slate-600">Built a translator using Long Short-Term Memory (LSTM) deep learning to convert sign language to speech in real-time, aiming to break down communication barriers for the hearing impaired.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Timeline -->
+        <section class="mb-14">
+            <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-12">Career Timeline</h2>
+            <div class="relative max-w-2xl mx-auto pl-8">
+                <div class="timeline-path"></div>
+                <div class="space-y-12">
+                    <div class="relative timeline-item">
+                        <h3 class="text-xl font-bold">Embedded Engineer II</h3>
+                        <p class="font-semibold text-[#118AB2]">Boson Motors Pvt Ltd (May 2024 – Present)</p>
+                        <p class="mt-2 text-slate-600">Overseeing vehicle telemetry and data analytics. Automated data validation processes with Python, significantly boosting data accuracy and resolving critical bugs in Android applications.</p>
+                    </div>
+                    <div class="relative timeline-item">
+                        <h3 class="text-xl font-bold">Freelancer: Web & Android Developer</h3>
+                        <p class="font-semibold text-[#118AB2]">(May 2024 – Feb 2025)</p>
+                        <p class="mt-2 text-slate-600">Led website development projects and built real-time Android applications using Flutter, Firebase, and the Gemini API.</p>
+                    </div>
+                    <div class="relative timeline-item">
+                        <h3 class="text-xl font-bold">IoT & Full Stack Developer Intern</h3>
+                        <p class="font-semibold text-[#118AB2]">MSRTech Research Labz (Dec 2023 – Apr 2024)</p>
+                        <p class="mt-2 text-slate-600">Developed scalable IoT solutions, managed end-to-end full-stack projects, and mentored junior developers in an agile environment using Jira.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements -->
+        <section class="text-center">
+            <h2 class="text-3xl font-bold text-[#073B4C] mb-8">Achievements & Recognition</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <span class="text-4xl font-bold text-[#FFD166]" aria-label="Trophy">🏆</span>
+                    <p class="mt-2 font-semibold">Winner</p>
+                    <p class="text-slate-600">NIT AP Startup Expo 2023</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <span class="text-4xl font-bold text-[#06D6A0]" aria-label="Rocket">🚀</span>
+                    <p class="mt-2 font-semibold">Finalist</p>
+                    <p class="text-slate-600">Smart India Hackathon 2022</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <span class="text-4xl font-bold text-[#118AB2]" aria-label="Medal">🥇</span>
+                    <p class="mt-2 font-semibold">Project Expo Winner</p>
+                    <p class="text-slate-600">3 Consecutive Years</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <span class="text-4xl font-bold text-[#FF6B6B]" aria-label="Brain">🧠</span>
+                    <p class="mt-2 font-semibold">IDE Bootcamp</p>
+                    <p class="text-slate-600">Pitched to Angel Investors</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+<script>
+    const setupCharts = () => {
+        const kpiCtx = document.getElementById('kpiChart').getContext('2d');
+        new Chart(kpiCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Efficiency Gain', 'Baseline'],
+                datasets: [{
+                    data: [40, 60],
+                    backgroundColor: ['#06D6A0', '#e2e8f0'],
+                    borderColor: ['#06D6A0', '#e2e8f0'],
+                    borderWidth: 1,
+                    circumference: 180,
+                    rotation: 270,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '70%',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false }
+                }
+            }
+        });
+        
+        const skillsCtx = document.getElementById('skillsChart').getContext('2d');
+        const skillsData = {
+            labels: [
+                'Embedded Systems & C/C++', 
+                'IoT (Firebase, ESP32)', 
+                'AI/ML (Python, TF, LSTM)', 
+                ['Full-Stack (Flutter,', 'Web, DBs)']
+            ],
+            datasets: [{
+                label: 'Skill Focus',
+                data: [90, 85, 80, 75],
+                backgroundColor: ['#118AB2', '#06D6A0', '#FFD166', '#FF6B6B'],
+                borderColor: ['#118AB2', '#06D6A0', '#FFD166', '#FF6B6B'],
+                borderWidth: 1
+            }]
+        };
+
+        new Chart(skillsCtx, {
+            type: 'bar',
+            data: skillsData,
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                        },
+                        ticks: {
+                           display: false
+                        }
+                    },
+                    y: {
+                         grid: {
+                            display: false,
+                            drawBorder: false,
+                        },
+                        ticks: {
+                            font: {
+                                size: 14,
+                                weight: '600'
+                            },
+                            color: '#073B4C'
+                        }
+                    }
+                }
+            }
+        });
+    };
+
+    document.addEventListener('DOMContentLoaded', setupCharts);
+</script>
+
+</body>
+</html>
